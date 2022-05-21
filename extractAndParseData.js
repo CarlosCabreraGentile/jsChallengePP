@@ -6,14 +6,73 @@ const data = {
 
 const myArray = data["data"].split(" ");
 const res = [];
+let count = 0;
+let outputFile = [];
 
 for (let i = 0; i < myArray.length; i++){    
-if(myArray[i].startsWith("key=")){
+if(myArray[i].startsWith("age=")){
+    console.log(myArray[i])
+    console.log(myArray[i].substring(4, 9).split(","))
+    if(myArray[i].substring(4, 9).split(",")[0] === '32') {
+        count ++;
+        outputFile.push();
+    }
         const shasum = crypto.createHash('sha1')
         shasum.update((myArray[i]).substring(4, 9))
         let s = shasum.digest('hex')
         res.push(s)
 	}
 }
+ console.log(count)
+// console.log(res)
 
-console.log(res)
+
+// const resp = [];
+// axios.get('https://coderbyte.com/api/challenges/json/age-counting')
+//   .then(res => {
+
+//       let data = '';
+
+
+//       const myArrayData = res;
+//   if(myArrayData !== null && myArrayData !== undefined){
+
+
+//       for(let i = 0; i < myArrayData.length; i++) {
+//         if(myArrayData[1].startsWith("key=")){
+//           const shas = crypto.createhash('sha1')
+//           shas.update(myArrayData[i].substring(4,9))
+//           let s = shas.digest('hex')
+//           resp.push(s)
+//         }
+//       }
+//   }
+//       console.log(resp);
+
+//   })
+//   .catch(error => {
+//     console.error(error);
+//   });
+
+
+
+// const myArray = resp["data"].split(" ");
+// const res = [];
+// let count = 0;
+
+// for (let i = 0; i < myArray.length; i++){    
+// let writeStream = fs.createWriteStream('output.txt');
+
+// if(myArray[i].startsWith("age=")){
+//     if(myArray[i].substring(4, 9).split(",")[0] === '32') {
+//         count ++;
+//     }
+//         const shasum = crypto.createHash('sha1')
+//         shasum.update((myArray[i]).substring(4, 9))
+//         let s = shasum.digest('hex')
+//         res.push(s);
+//        writeStream.write('s');
+// 	}
+// }
+
+// console.log("items exist that have an age equal to 32", count);
